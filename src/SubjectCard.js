@@ -3,7 +3,7 @@ import React from 'react';
 
 const SubjectCard = (props) =>{
     return (
-        <div className="Subject_Card BoxShadow" onClick ={()=>{props.Participant(props.Card.SubjectName)}}>
+        <div className={props.Class} onClick ={()=>{props.Participant(props.Card.SubjectName)}}>
             <div className="Left_Section">
                 <img alt ={props.Card.SubjectName} src={props.Card.img}></img>
             </div>

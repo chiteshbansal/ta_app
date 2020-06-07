@@ -10,13 +10,14 @@ const Navbar = (props) =>{
         <div className=" Navbar">
             {NavbarTabs.map((tab)=>{
                 return (
-                    <div  className="NavbarTab BoxShadow" onClick={()=>props.SectionChange(tab.TabName)} key={tab.Id}>
+                    <div  className={props.Class} onClick={()=>props.SectionChange(tab.TabName)} key={tab.Id}>
                         {tab.TabName}
                         <img alt="" src={tab.img} height='30' width="30">
                         </img>
                     </div>
                 )
-            })} 
+            })}
+            <div className={props.Class} onClick={props.ChangeTheme}>{props.InactiveTheme} Theme</div> 
         </div>
     )
 }

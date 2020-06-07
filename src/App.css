@@ -1,1 +1,8 @@
+.App{
+    position: relative;
+    
+}
 
+.AppDarkTheme{
+    background-color: darkgray;
+}

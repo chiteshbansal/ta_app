@@ -10,7 +10,7 @@ import Electrical from "./Electrical.jpg";
 import PDS from "./PDS.jpg";
 import avatar1 from "./avatar1.png";
 import avatar2 from "./avatar2.png";
-import avatar3 from "./avatar3.jpg";
+import avatar3 from "./avatar3.png";
 import avatar4 from "./avatar4.png";
 import avatar5 from "./avatar5.jpg";
 import avatar6 from "./avatar6.png";
@@ -18,6 +18,8 @@ import avatar7 from "./avatar7.png";
 import avatar8 from "./avatar8.jpg";
 import avatar9 from "./avatar9.jpg";
 import NotificationBar from "./NotificationBar";
+import TAworkspace from './TAworkspace';
+import Footer from './Footer';
 
 import Participant from "./Participant";
 class App extends React.Component {
@@ -71,7 +73,7 @@ class App extends React.Component {
         img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQxdmX6SV2TYIPmJXZlGBk61mxkn7UTcWpB_F7GDwowVndLVbxE&usqp=CAU"
       }
     ],
-    ShowSection:"Home",
+    ShowSection:"Subject",
     CurrentParticipantSubject:'',
     Students:[
       {
@@ -141,7 +143,8 @@ class App extends React.Component {
     NotificationBar:{
       Class_Name:"alert hide",
       msg:"Warning"
-    }
+    },
+    DarkTheme:false
   }
 
  
@@ -185,7 +188,7 @@ class App extends React.Component {
     const removedstudent = Students.filter((student)=>{
       return student.RollNo===StudentRollNo;
     })
-    const notif= removedstudent[0].name+" is Removed from the course!!!";
+    const notif= removedstudent[0].name+"("+removedstudent[0].RollNo+')' +" is Removed from the course!!!";
 
     setTimeout(()=>{
       this.removeNotificationhandler();
@@ -208,6 +211,13 @@ class App extends React.Component {
     })
   }
 
+  ChangeThemeHandler = () =>{
+    var newtheme = !this.state.DarkTheme;
+    this.setState({
+      DarkTheme:newtheme
+    })
+  }
+
   AddParticipantsHandler = () =>{
 
     setTimeout(()=>{
@@ -223,14 +233,48 @@ class App extends React.Component {
   }
 
   render(){ 
+
+    let InactiveTheme = 'Dark';
+    let AppClass = ['App'];
+    let LoginBtnClass = ['LoginBtn']
+    let LoginBoxHeadingClass = ['Login_box_heading'];
+    let SubjectCardClass = ['Subject_Card BoxShadow'];
+    let TaWorkspaceClass = ['ta_workspace BoxShadow'];
+    let AddParticipantBtnClass  = ['AddParticipantBtn']
+    let FooterClass = ['Footer'];
+    let NavbarTabClass = ['NavbarTab','BoxShadow']
+    let StudentCardClass=['Bottom_Right'];
+    let TaWorkSpaceHeadingClass=['workspace_heading'];
+
+    if(this.state.DarkTheme===true)
+    {
+      InactiveTheme="Light";
+    }
+
+    const HeaderClass = ['Header'];
+
+    if(this.state.DarkTheme==true)
+    {
+      HeaderClass.push('HeaderDarkTheme ');
+      LoginBoxHeadingClass.push('LoginBoxHeadingDarkTheme');
+      LoginBtnClass.push('LoginBtnDarkTheme');
+      SubjectCardClass.push('SubjectCardDarkTheme');
+      AppClass.push('AppDarkTheme')
+      TaWorkspaceClass.push('TaWorkspaceDarkTheme');
+      AddParticipantBtnClass.push('AddParticipantBtnDarkTheme');
+      FooterClass.push('FooterDarkTheme');
+      NavbarTabClass.push('NavbarTabDarkTheme');
+      StudentCardClass.push('Bottom_RightDarkTheme');
+      TaWorkSpaceHeadingClass.push('workspace_headingDarkTheme');
+    }
     let LoginF=null;
     if(this.state.ShowSection==="Home")
     {
        LoginF =(
         <div className="Complete_login_container BoxShadow">
-          <LoginBox/>
+          <LoginBox Class={LoginBoxHeadingClass.join(" ")}/>
           <LoginForm status = {this.state.TA_login} LoginName={this.UpdateLoginNameHandler} />
-          <button style={styles.LoginBtn} onClick={this.LoginHandler}> Login</button>
+          <button className={LoginBtnClass.join(" ")} onClick={this.LoginHandler}> Login</button>
         </div>
       )
       if(this.state.Login_status)
@@ -250,7 +294,7 @@ class App extends React.Component {
           {
             this.state.Subjects.map((subject)=>{
               return (
-                <SubjectCard Card = {subject} Participant={(SubjectName)=>this.ParticipantPageHandler(SubjectName)} key={subject.Id}/>
+                <SubjectCard Card = {subject} Participant={(SubjectName)=>this.ParticipantPageHandler(SubjectName)} key={subject.Id} Class={SubjectCardClass.join(' ')}/>
               )
             })
           }
@@ -266,50 +310,40 @@ class App extends React.Component {
       const {Students}=this.state;
       ParticipantSection=(
         <div className="Participant_Section" >
-          <NotificationBar CurrentClass={this.state.NotificationBar} remove={this.removeNotificationhandler}/>
-          <SubjectCard Card = {subject[0]} Participant={()=>{}}/>
+          
+          <NotificationBar CurrentClass={this.state.NotificationBar} remove={this.removeNotificationhandler} />
+          <SubjectCard Card = {subject[0]} Participant={()=>{}} Class={SubjectCardClass.join(' ')} />
+          <TAworkspace Class={TaWorkspaceClass.join(' ')} HeadingClass={TaWorkSpaceHeadingClass.join(' ')}/>
           <div className="Student_Section">
            {
              Students.map((student)=>{
                return(
-                 <Participant Student={student} delete={(StudentRollNo)=>this.DeleteParticipantHandler(StudentRollNo)}/>
+                 <Participant Student={student} delete={(StudentRollNo)=>this.DeleteParticipantHandler(StudentRollNo)} Class = {StudentCardClass.join(" ")}/>
                )
              })
            }
            </div>
-           <div className="AddParticipantBtn"><button onClick={this.AddParticipantsHandler}>Add All Participants</button></div>
+           <div className={AddParticipantBtnClass.join(' ')}><button onClick={this.AddParticipantsHandler}>Add All Participants</button></div>
         </div>
       )
     }
       
     
     return (
-      <div className="App">
-        <Header/>
-        <Navbar SectionChange={(SectionName)=>{this.SectionChangeHandler(SectionName,this)}}/> 
+      <div className={AppClass.join(' ')}>
+        <Header Class={HeaderClass.join(" ")}/>
+        <Navbar Class={NavbarTabClass.join(' ')} SectionChange={(SectionName)=>{this.SectionChangeHandler(SectionName,this)}} ChangeTheme={this.ChangeThemeHandler} InactiveTheme={InactiveTheme}/> 
         
         {LoginF}
         {SubjectSection}
         {ParticipantSection}
+        <Footer  Class = {FooterClass.join(" ")}/>
       </div>
     );
   }
 }
 
 
-const styles = {
-  LoginBtn:{
-    textAlign: "center",
-    fontWeight: "bold",
-    padding: "16px",
-    border:"none",
-    fontSize: "20px",
-    fontFamily: 'cursive',
-    backgroundImage: "linear-gradient(to right ,rgb(240, 120, 9), orange,rgba(255, 136, 0, 0.699),rgba(255, 166, 0, 0.473))",
-    color:"white",
-    width: '100%'
-  }
-}
 
 export default App;
 

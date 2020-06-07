@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = () =>{
+const Header = (props) =>{
 
     return (
-        <div className="Header">
+        <div className={props.Class}>
             <div className="App_logo">
                 <img alt="WeConnect" src = "https://files.codingninjas.in/0000000000001185.png"/>
             </div>

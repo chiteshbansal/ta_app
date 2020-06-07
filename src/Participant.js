@@ -15,7 +15,7 @@ const Participant = (props) =>{
                     <div>ContactNo: {Student.PhoneNo}</div>
                     <button className="Profile_Button">Profile</button>
                 </div>
-                <div className="Bottom_Right">
+                <div className={props.Class}>   
                     <div>
                         <button>
                             Chat
