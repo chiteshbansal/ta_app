@@ -245,6 +245,8 @@ class App extends React.Component {
     let NavbarTabClass = ['NavbarTab','BoxShadow']
     let StudentCardClass=['Bottom_Right'];
     let TaWorkSpaceHeadingClass=['workspace_heading'];
+    let StudentSectionClass = ['Student_Section'];
+    let CompleteStudentCardClass = ['Student_Card','BoxShadow']
 
     if(this.state.DarkTheme===true)
     {
@@ -266,6 +268,8 @@ class App extends React.Component {
       NavbarTabClass.push('NavbarTabDarkTheme');
       StudentCardClass.push('Bottom_RightDarkTheme');
       TaWorkSpaceHeadingClass.push('workspace_headingDarkTheme');
+      StudentSectionClass.push('Student_SectionDarkTheme');
+      CompleteStudentCardClass.push('StudentCardDarkTheme');
     }
     let LoginF=null;
     if(this.state.ShowSection==="Home")
@@ -294,7 +298,7 @@ class App extends React.Component {
           {
             this.state.Subjects.map((subject)=>{
               return (
-                <SubjectCard Card = {subject} Participant={(SubjectName)=>this.ParticipantPageHandler(SubjectName)} key={subject.Id} Class={SubjectCardClass.join(' ')}/>
+                <SubjectCard Card = {subject} Participant={(SubjectName)=>this.ParticipantPageHandler(SubjectName)} key={subject.Id} Class={SubjectCardClass.join(' ')} />
               )
             })
           }
@@ -314,11 +318,11 @@ class App extends React.Component {
           <NotificationBar CurrentClass={this.state.NotificationBar} remove={this.removeNotificationhandler} />
           <SubjectCard Card = {subject[0]} Participant={()=>{}} Class={SubjectCardClass.join(' ')} />
           <TAworkspace Class={TaWorkspaceClass.join(' ')} HeadingClass={TaWorkSpaceHeadingClass.join(' ')}/>
-          <div className="Student_Section">
+          <div className={StudentSectionClass.join(' ')}>
            {
              Students.map((student)=>{
                return(
-                 <Participant Student={student} delete={(StudentRollNo)=>this.DeleteParticipantHandler(StudentRollNo)} Class = {StudentCardClass.join(" ")}/>
+                 <Participant StudentCard={CompleteStudentCardClass.join(" ")}  Student={student} delete={(StudentRollNo)=>this.DeleteParticipantHandler(StudentRollNo)} Class = {StudentCardClass.join(" ")}/>
                )
              })
            }

@@ -3,7 +3,7 @@ import React from 'react';
 const Participant = (props) =>{
     const{Student}=props;
     return (
-        <div className="Student_Card BoxShadow">
+        <div className={props.StudentCard}>
             <div className="Top_Section">
                 <img alt={Student.name} src={Student.img}></img>
             </div>

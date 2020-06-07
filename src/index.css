@@ -460,6 +460,7 @@ body:after{
   border:1px solid black;
   width: 20%;
   margin:1rem;
+  background-color: black;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -471,21 +472,48 @@ body:after{
   z-index: 2;
 }
 
-.Student_Card:before{
-  content: '';
-  border: 1px solid lightgray;
-  width: 90%;
-  height: 10px;
-  background-color: white;
-  position: absolute;
-  top: 1%;
-  box-shadow: inset 2px 2px 3px rgba(0,0,0,0.5);
-}
 
 .Student_Section{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+}
+
+.Student_SectionDarkTheme{
+  background-color: rgb(26, 23, 23);
+  /* z-index: -2; */
+}
+
+.StudentCardDarkTheme .Bottom_Left{
+  background-color: black;
+  color: grey;
+  z-index: 10;
+}
+
+.StudentCardDarkTheme:nth-child(2n+1):before{
+  background-image: linear-gradient(315deg,#ff0057,#e64a19);
+}
+.StudentCardDarkTheme:nth-child(2n+2):before{
+  background-image: linear-gradient(315deg,cyan,blue);
+}
+.StudentCardDarkTheme:nth-child(2n+3):before{
+  background-image: linear-gradient(315deg,lightgreen,yellow);
+}
+.StudentCardDarkTheme:nth-child(2n+4):before{
+  background-image: linear-gradient(315deg,violet,purple);
+}
+.Student_SectionDarkTheme .StudentCardDarkTheme:before{
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  padding: 4px ;
+  /* background-image: linear-gradient(315deg,rgba(202, 21, 21, 0.9),rgba(239, 104, 25, 0.68)) */
+  /* background-image: linear-gradient(315deg,#ff0057,#e64a19); */
+  transform: skew(1deg,1deg);
 
 }
 div.Top_Section{
@@ -518,6 +546,7 @@ div.Top_Section{
 }
 .Bottom_Section{
   width: 100%;
+  background-color: white;
   z-index: 5;
   display:flex;
 }
@@ -613,7 +642,7 @@ div.Top_Section{
   flex-direction: column;
   box-shadow: inset 2px 2px 3px rgba(0,0,0,0.5);
   border: 1px solid lightgrey;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   justify-content: space-between;
 }
 
