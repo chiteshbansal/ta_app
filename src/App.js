@@ -1,27 +1,27 @@
 import React from 'react';
 import './App.css';
-import Header from './Header';
-import Navbar from "./Navbar";
-import LoginBox from './LoginBox';
-import LoginForm from './LoginForm';
-import SubjectCard from './SubjectCard';
-import DeepLearing from "./deeplearning.jpg";
-import Electrical from "./Electrical.jpg";
-import PDS from "./PDS.jpg";
-import avatar1 from "./avatar1.png";
-import avatar2 from "./avatar2.png";
-import avatar3 from "./avatar3.png";
-import avatar4 from "./avatar4.png";
-import avatar5 from "./avatar5.jpg";
-import avatar6 from "./avatar6.png";
-import avatar7 from "./avatar7.png";
-import avatar8 from "./avatar8.jpg";
-import avatar9 from "./avatar9.jpg";
-import NotificationBar from "./NotificationBar";
-import TAworkspace from './TAworkspace';
-import Footer from './Footer';
+import Header from './components/Header';
+import Navbar from "./components/Navbar";
+import LoginBox from './components/LoginBox';
+import LoginForm from './components/LoginForm';
+import SubjectCard from './components/SubjectCard';
+import DeepLearing from "./assets/deeplearning.jpg";
+import Electrical from "./assets/Electrical.jpg";
+import PDS from "./assets/PDS.jpg";
+import avatar1 from "./assets/avatar1.png";
+import avatar2 from "./assets/avatar2.png";
+import avatar3 from "./assets/avatar3.png";
+import avatar4 from "./assets/avatar4.png";
+import avatar5 from "./assets/avatar5.jpg";
+import avatar6 from "./assets/avatar6.png";
+import avatar7 from "./assets/avatar7.png";
+import avatar8 from "./assets/avatar8.jpg";
+import avatar9 from "./assets/avatar9.jpg";
+import NotificationBar from "./components/NotificationBar";
+import TAworkspace from './components/TAworkspace';
+import Footer from './components/Footer';
 
-import Participant from "./Participant";
+import Participant from "./components/Participant";
 class App extends React.Component {
 
   state={
@@ -275,10 +275,18 @@ class App extends React.Component {
     if(this.state.ShowSection==="Home")
     {
        LoginF =(
-        <div className="Complete_login_container BoxShadow">
-          <LoginBox Class={LoginBoxHeadingClass.join(" ")}/>
-          <LoginForm status = {this.state.TA_login} LoginName={this.UpdateLoginNameHandler} />
-          <button className={LoginBtnClass.join(" ")} onClick={this.LoginHandler}> Login</button>
+        <div className="Complete_login_container">
+          <div className="middlecontainer">
+            <div className='Box'>
+              <LoginBox Class={LoginBoxHeadingClass.join(" ")}/>
+              <LoginForm status = {this.state.TA_login} LoginName={this.UpdateLoginNameHandler} />
+              <button className={LoginBtnClass.join(" ")} onClick={this.LoginHandler}> Login</button>
+            </div>
+            <div><img alt="WeConnect"
+              src = "https://files.codingninjas.in/0000000000001187.png" 
+              width='400' 
+              height='400'/></div>
+          </div>
         </div>
       )
       if(this.state.Login_status)
