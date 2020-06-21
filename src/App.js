@@ -73,7 +73,7 @@ class App extends React.Component {
         img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQxdmX6SV2TYIPmJXZlGBk61mxkn7UTcWpB_F7GDwowVndLVbxE&usqp=CAU"
       }
     ],
-    ShowSection:"Subject",
+    ShowSection:"Home",
     CurrentParticipantSubject:'',
     Students:[
       {
