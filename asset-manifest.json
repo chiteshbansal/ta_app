@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ta_app/static/css/main.e50234df.chunk.css",
+    "main.js": "/ta_app/static/js/main.c84d023c.chunk.js",
+    "main.js.map": "/ta_app/static/js/main.c84d023c.chunk.js.map",
+    "runtime-main.js": "/ta_app/static/js/runtime-main.ca2dc546.js",
+    "runtime-main.js.map": "/ta_app/static/js/runtime-main.ca2dc546.js.map",
+    "static/js/2.acdaa4c9.chunk.js": "/ta_app/static/js/2.acdaa4c9.chunk.js",
+    "static/js/2.acdaa4c9.chunk.js.map": "/ta_app/static/js/2.acdaa4c9.chunk.js.map",
+    "index.html": "/ta_app/index.html",
+    "precache-manifest.5c82233e62fccd815d5e855398b28d82.js": "/ta_app/precache-manifest.5c82233e62fccd815d5e855398b28d82.js",
+    "service-worker.js": "/ta_app/service-worker.js",
+    "static/css/main.e50234df.chunk.css.map": "/ta_app/static/css/main.e50234df.chunk.css.map",
+    "static/js/2.acdaa4c9.chunk.js.LICENSE.txt": "/ta_app/static/js/2.acdaa4c9.chunk.js.LICENSE.txt",
+    "static/media/deeplearning.jpg": "/ta_app/static/media/deeplearning.070b982f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ca2dc546.js",
+    "static/js/2.acdaa4c9.chunk.js",
+    "static/css/main.e50234df.chunk.css",
+    "static/js/main.c84d023c.chunk.js"
+  ]
+}
