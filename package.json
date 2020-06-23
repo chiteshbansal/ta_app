@@ -2,7 +2,7 @@
   "name": "project_ta_app",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://chiteshbansal.github.io/ta_app/",
+  "homepage":"https://chiteshbansal.github.io/ta_app",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
