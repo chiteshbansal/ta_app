@@ -278,7 +278,7 @@ class App extends React.Component {
         <div className="Complete_login_container">
           <div className="middlecontainer">
             <div className='Box'>
-              <LoginBox Class={LoginBoxHeadingClass.join(" ")}/>
+              {/* <LoginBox Class={LoginBoxHeadingClass.join(" ")}/> */}
               <LoginForm status = {this.state.TA_login} LoginName={this.UpdateLoginNameHandler} />
               <button className={LoginBtnClass.join(" ")} onClick={this.LoginHandler}> Login</button>
             </div>

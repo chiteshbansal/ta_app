@@ -178,11 +178,21 @@ body:after{
 .middlecontainer{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .Box{
-  margin: 0 2rem;
-  width: 60%;
+  margin: 2rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5), 5px 5px 5px rgba(0,0,0,0.5);
+  border-radius: 15px;
+}
+
+@media (min-width:800px){
+  div.Box{
+    width: 750px;
+  }
 }
 .Login_box_heading{
   text-align: center;
@@ -213,7 +223,7 @@ body:after{
 }
 
 .LoginBtn{
-
+  border-radius: 0px 0px 15px 15px;
   text-align: center;
   font-weight: bold;
   padding: 1rem;
@@ -250,18 +260,23 @@ body:after{
   margin: .5rem;
   box-sizing: border-box;
   border-radius: 5px;
-  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.5);
-  border: 2px solid lightgrey;
+  /* box-shadow: 2px 2px 4px rgba(0,0,0,0.5); */
+  border: none;
+  border-bottom: 2px solid lightgrey;
 }
 
 #LoginForm_cnt input:focus{
-  border:5px solid orange;
+  border: none;
+  border-bottom:5px solid orange;
+  outline: none;
+
 }
 
 .Complete_login_container{
   width: 100%;
   margin: 0 auto;
   border-top: none;
+  /* box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.5); */
 }
 
 .Welcome_cnt{
@@ -468,6 +483,7 @@ body:after{
 /* Styling Student Card  */
 
 .Student_Card{
+  border-radius: 15px;
   border:1px solid black;
   width: 20%;
   margin:1rem;
@@ -481,6 +497,7 @@ body:after{
   background-color: white;
   perspective: 1000px;
   z-index: 2;
+  
 }
 
 
@@ -488,21 +505,28 @@ body:after{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
+  background-image: linear-gradient(to bottom ,orange ,yellow, white)
 }
 
 .Student_SectionDarkTheme{
-  background-color: rgb(26, 23, 23);
+ 
+  background-image: linear-gradient(to right,rgb(2, 31, 44),rgb(3, 48, 70),rgb(4, 64, 92));
   /* z-index: -2; */
 }
 
 .StudentCardDarkTheme .Bottom_Left{
-  background-color: black;
+  background-image: linear-gradient(to right,rgb(2, 31, 44),rgb(3, 48, 70),rgb(4, 64, 92));
   color: grey;
   z-index: 10;
+  border-radius:0px 0px 0px 15px;
+}
+.StudentCardDarkTheme{
+  box-shadow: 4px 4xp 4px rgba(0,0,0,0.2),0px 0px 10px 10px rgb(61, 184, 245) ;
+  border: 1px solid white;
+  border-radius: 15px;
 }
 
-.StudentCardDarkTheme:nth-child(2n+1):before{
+/* .StudentCardDarkTheme:nth-child(2n+1):before{
   background-image: linear-gradient(315deg,#ff0057,#e64a19);
 }
 .StudentCardDarkTheme:nth-child(2n+2):before{
@@ -513,7 +537,8 @@ body:after{
 }
 .StudentCardDarkTheme:nth-child(2n+4):before{
   background-image: linear-gradient(315deg,violet,purple);
-}
+} */
+/* 
 .Student_SectionDarkTheme .StudentCardDarkTheme:before{
   content: " ";
   position: absolute;
@@ -522,20 +547,22 @@ body:after{
   background-color: white;
   z-index: -1;
   padding: 4px ;
-  /* background-image: linear-gradient(315deg,rgba(202, 21, 21, 0.9),rgba(239, 104, 25, 0.68)) */
-  /* background-image: linear-gradient(315deg,#ff0057,#e64a19); */
+  background-image: linear-gradient(315deg,rgba(202, 21, 21, 0.9),rgba(239, 104, 25, 0.68)) */
+  /* background-image: linear-gradient(315deg,#ff0057,#e64a19);
   transform: skew(1deg,1deg);
-
-}
+} 
+*/
 div.Top_Section{
   background-image: linear-gradient(to right ,rgb(240, 120, 9), orange,rgba(255, 136, 0, 0.699),rgba(255, 166, 0, 0.473));
   width: 100%;
   text-align: center;
+  border-radius: 15px;
 }
 .Top_Section img{
   object-fit: contain;
   height: 100%;
   width: 100%;
+  border-radius: 15px 15px 0px 0px ;
 }
 
 /* div.Top_Section:nth-child(2n){
